@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    h1 Все курсы академии
+    a.btn.btn.-primary(href="courses/add") Создать Новый курс
+    table.table.table.striped
+        thead
+            tr
+                th Id курса
+                th Курс
+                th
+                th
+        tbody
+            each course in courses
+                tr
+                    td = course.id
+                    td = course.name
+                    td(style="width: 50px;"): a(href="/courses/edit" + course.id)
+                        span.glyphicon.glypgicon-pencil
+                    td(style="width: 50px;"): a(href="/courses/detele" + course.id)
+                        span.glyphicon.glyphicon-remove
